@@ -4,6 +4,11 @@ module.exports = {
 		'./components/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
+		fontFamily: {
+			logo: ['Pacifico', 'sans-serif'],
+			title: ['Poppins', 'sans-serif'],
+			text: ['Rubik', 'sans-serif'],
+		},
 		extend: {},
 	},
 	plugins: [],
