@@ -6,7 +6,9 @@ function Navbar() {
 	return (
 		<nav>
 			<Link href='/'>
-				<Logo />
+				<>
+					<Logo />
+				</>
 			</Link>
 		</nav>
 	);
