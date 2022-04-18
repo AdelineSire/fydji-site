@@ -12,8 +12,6 @@ function SubscribeForm() {
 	});
 	const mail = 'adeline.sire%40gmail.com';
 	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${mail}&query=${mail}&isrefinement=true&fromdisplay=${mail}`;
-	console.log('isSubmitted: ', isSubmitted);
-	console.log('isGmail: ', isGmail);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -21,43 +19,40 @@ function SubscribeForm() {
 		axios
 			.post('http://localhost:3002/actions/signup-email', { email: email })
 			.then((res) => {
+				console.log("l'email a été enregistré");
 				setEmail('');
-				console.log('res.data: ', res.data);
 				setSubmitted({
 					isSubmitted: res.data.success,
 					isGmail: res.data.isGmail,
 				});
-				console.log('isSubmitted: ', isSubmitted);
-				console.log('isGmail: ', isGmail);
 			})
 			.catch((error) => console.log('error: ', error));
 	};
 
-	const EmailForm = () => {
-		return (
-			<form className='flex flex-row gap-4' onSubmit={handleSubmit}>
-				<InputText email={email} setEmail={setEmail} />
-				<Button>Je m'inscris</Button>
-			</form>
-		);
-	};
-
-	const EmailFormFeedBack = () => {
-		return (
-			<div className='flex flex-col items-center justify-center gap-4 text-black bg-white p-8'>
-				<p>Vous avez reçu votre premier email !</p>
-				{isGmail && (
-					<Link href={gmailLink}>
-						<a className='p-4 bg-green text-white' target='_blank'>
-							Consulter
-						</a>
-					</Link>
-				)}
-			</div>
-		);
-	};
-
-	return <div>{isSubmitted ? <EmailFormFeedBack /> : <EmailForm />}</div>;
+	return (
+		<>
+			{isSubmitted ? (
+				<div className='flex flex-col items-center justify-center gap-4 text-black bg-white p-8'>
+					<p>Vous avez reçu votre premier email !</p>
+					{isGmail && (
+						<Link href={gmailLink}>
+							<a
+								className='bg-green shadow-xl font-button text-white font-semibold uppercase tracking-wider p-4 rounded'
+								target='_blank'
+							>
+								Consulter
+							</a>
+						</Link>
+					)}
+				</div>
+			) : (
+				<form className='flex flex-row gap-4' onSubmit={handleSubmit}>
+					<InputText email={email} setEmail={setEmail} />
+					<Button>Je m'inscris</Button>
+				</form>
+			)}
+		</>
+	);
 }
 
 export default SubscribeForm;
