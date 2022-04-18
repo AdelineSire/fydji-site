@@ -18,7 +18,7 @@ function Hero() {
 					<CallToAction />
 					<SubscribeForm />
 				</div>
-				<div className='pt-20'>
+				<div className='pt-20 flex justify-center'>
 					<Image src={headline} alt='Une personne devant un ordinateur' />
 				</div>
 			</div>
