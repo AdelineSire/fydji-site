@@ -6,8 +6,8 @@ module.exports = {
 	theme: {
 		fontFamily: {
 			logo: ['Pacifico', 'sans-serif'],
-			title: ['Poppins', 'sans-serif'],
-			text: ['Rubik', 'sans-serif'],
+			text: ['Poppins', 'sans-serif'],
+			button: ['Rubik', 'sans-serif'],
 		},
 		extend: {
 			colors: {

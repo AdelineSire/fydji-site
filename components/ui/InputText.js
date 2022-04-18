@@ -7,7 +7,7 @@ function InputText({ email, setEmail }) {
 			value={email}
 			onChange={(e) => setEmail(e.target.value)}
 			required
-		></input>
+		/>
 	);
 }
 
