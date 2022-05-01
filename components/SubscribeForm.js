@@ -3,6 +3,8 @@ import Link from 'next/Link';
 import axios from 'axios';
 import InputText from './ui/InputText';
 import Button from './ui/Button';
+const EMAIL = process.env.EMAIL;
+const API_URL = process.env.API_URL;
 
 function SubscribeForm() {
 	const [email, setEmail] = useState('');
@@ -10,14 +12,12 @@ function SubscribeForm() {
 		isSubmitted: false,
 		isGmail: false,
 	});
-	const mail = 'adeline.sire%40gmail.com';
 	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${mail}&query=${mail}&isrefinement=true&fromdisplay=${mail}`;
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log('email: ', email);
 		axios
-			.post('http://localhost:3002/actions/signup-email', { email: email })
+			.post(`${API_URL}/create/user`, { email: EMAIL })
 			.then((res) => {
 				console.log("l'email a été enregistré");
 				setEmail('');
