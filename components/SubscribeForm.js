@@ -12,7 +12,7 @@ function SubscribeForm() {
 		isSubmitted: false,
 		isGmail: false,
 	});
-	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${mail}&query=${mail}&isrefinement=true&fromdisplay=${mail}`;
+	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${EMAIL}&query=${EMAIL}&isrefinement=true&fromdisplay=${EMAIL}`;
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
