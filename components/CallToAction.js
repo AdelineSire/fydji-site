@@ -5,7 +5,7 @@ function CallToAction() {
 				Les offres React
 			</h2>
 			<p className='text-white text-lg leading-normal mb-8'>
-				Inscrivez-vous pour recevoir les offres d&aposemploi React par email
+				Inscrivez-vous pour recevoir les offres d&apos;emploi React par email
 				tous les jours !
 			</p>
 		</div>

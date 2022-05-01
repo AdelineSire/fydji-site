@@ -48,7 +48,7 @@ function SubscribeForm() {
 			) : (
 				<form className='flex flex-row gap-4' onSubmit={handleSubmit}>
 					<InputText email={email} setEmail={setEmail} />
-					<Button>Je m&aposinscris</Button>
+					<Button>Je m&apos;inscris</Button>
 				</form>
 			)}
 		</>
