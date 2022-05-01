@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Link from 'next/Link';
+import Link from 'next/link';
 import axios from 'axios';
 import InputText from './ui/InputText';
 import Button from './ui/Button';
