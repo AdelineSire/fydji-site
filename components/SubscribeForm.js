@@ -17,7 +17,7 @@ function SubscribeForm() {
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		axios
-			.post(`${API_URL}/create/user`, { email: EMAIL })
+			.post(`${API_URL}/create/user`, { email: email })
 			.then((res) => {
 				console.log("l'email a été enregistré");
 				setEmail('');
