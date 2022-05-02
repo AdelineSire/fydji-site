@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
-import dotenv from 'dotenv';
 import InputText from './ui/InputText';
 import Button from './ui/Button';
-dotenv.config();
-const EMAIL = process.env.EMAIL;
-const API_URL = process.env.API_URL;
+const EMAIL = process.env.NEXT_PUBLIC_EMAIL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function SubscribeForm() {
 	const [email, setEmail] = useState('');
