@@ -25,13 +25,13 @@ function SubscribeForm() {
 			.post(`${API_URL}/create/user`, { email: email })
 			.then((res) => {
 				console.log("l'email a été enregistré");
-				setEmail('');
 				setSubmitted({
 					isSubmitted: res.data.success,
 					isGmail: res.data.isGmail,
 				});
 			})
 			.catch((error) => console.log('error: ', error));
+		setEmail('');
 	};
 
 	return (
