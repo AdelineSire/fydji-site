@@ -13,11 +13,6 @@ function SubscribeForm() {
 		isGmail: false,
 	});
 	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${EMAIL}&query=${EMAIL}&isrefinement=true&fromdisplay=${EMAIL}`;
-	console.log('apiurl: ', API_URL);
-	console.log(
-		'process.env.NEXT_PUBLIC_API_URL: ',
-		process.env.NEXT_PUBLIC_API_URL
-	);
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
