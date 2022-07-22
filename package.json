@@ -17,6 +17,7 @@
 	"devDependencies": {
 		"@testing-library/jest-dom": "^5.16.4",
 		"@testing-library/react": "^13.0.1",
+		"@types/node": "^18.0.6",
 		"autoprefixer": "^10.4.4",
 		"eslint": "8.13.0",
 		"eslint-config-next": "12.1.5",
