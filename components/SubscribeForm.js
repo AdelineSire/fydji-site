@@ -1,28 +1,32 @@
 import { useState } from 'react';
-import Link from 'next/link';
 import axios from 'axios';
 import InputText from './ui/InputText';
 import Button from './ui/Button';
+import SubscriptionInfo from './ui/SubscriptionInfo';
+import Spinner from './ui/Spinner';
 const EMAIL = process.env.NEXT_PUBLIC_EMAIL;
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 function SubscribeForm() {
 	const [email, setEmail] = useState('');
-	const [{ isSubmitted, isGmail }, setSubmitted] = useState({
-		isSubmitted: false,
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [{ isRegistered, isGmail }, setIsRegistered] = useState({
+		isRegistered: false,
 		isGmail: false,
 	});
 	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${EMAIL}&query=${EMAIL}&isrefinement=true&fromdisplay=${EMAIL}`;
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
+		setIsSubmitting(true);
 		axios
 			.post(`${API_URL}/create/user`, { email: email })
 			.then((res) => {
-				setSubmitted({
-					isSubmitted: res.data.success,
+				setIsRegistered({
+					isRegistered: res.data.success,
 					isGmail: res.data.isGmail,
 				});
+				setIsSubmitting(false);
 			})
 			.catch((error) => console.log('error: ', error));
 		setEmail('');
@@ -30,24 +34,12 @@ function SubscribeForm() {
 
 	return (
 		<>
-			{isSubmitted ? (
-				<div className='flex flex-col items-center justify-center gap-4 text-black bg-white p-8'>
-					<p>Vous avez reçu votre premier email !</p>
-					{isGmail && (
-						<Link href={gmailLink}>
-							<a
-								className='bg-green shadow-xl font-button text-white font-semibold uppercase tracking-wider p-4 rounded'
-								target='_blank'
-							>
-								Consulter
-							</a>
-						</Link>
-					)}
-				</div>
+			{isRegistered ? (
+				<SubscriptionInfo isGmail={isGmail} gmailLink={gmailLink} />
 			) : (
 				<form className='flex flex-row gap-4' onSubmit={handleSubmit}>
 					<InputText email={email} setEmail={setEmail} />
-					<Button>Je m&apos;inscris</Button>
+					{isSubmitting ? <Spinner /> : <Button>Je m&apos;inscris</Button>}
 				</form>
 			)}
 		</>
