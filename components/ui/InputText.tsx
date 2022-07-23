@@ -1,4 +1,11 @@
-function InputText({ email, setEmail }) {
+import { FC, Dispatch } from 'react';
+
+interface IInputText {
+	email: string;
+	setEmail: Dispatch<React.SetStateAction<string>>;
+}
+
+const InputText: FC<IInputText> = ({ email, setEmail }) => {
 	return (
 		<input
 			className='rounded px-2 grow text-black'
@@ -9,6 +16,6 @@ function InputText({ email, setEmail }) {
 			required
 		/>
 	);
-}
+};
 
 export default InputText;

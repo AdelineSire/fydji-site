@@ -16,7 +16,7 @@ function SubscribeForm() {
 	});
 	const gmailLink = `https://mail.google.com/mail/u/0/#advanced-search/from=${EMAIL}&query=${EMAIL}&isrefinement=true&fromdisplay=${EMAIL}`;
 
-	const handleSubmit = (event) => {
+	const handleSubmit = (event: { preventDefault: () => void }) => {
 		event.preventDefault();
 		setIsSubmitting(true);
 		axios

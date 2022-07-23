@@ -1,6 +1,12 @@
+import { FC } from 'react';
 import Link from 'next/link';
 
-function SubscriptionInfo({ isGmail, gmailLink }) {
+interface ISubscriptionInfo {
+	isGmail: boolean;
+	gmailLink: string;
+}
+
+const SubscriptionInfo: FC<ISubscriptionInfo> = ({ isGmail, gmailLink }) => {
 	return (
 		<div className='flex flex-col items-center justify-center gap-4 text-black bg-white p-8'>
 			<p>Vous avez reçu votre premier email !</p>
@@ -16,6 +22,6 @@ function SubscriptionInfo({ isGmail, gmailLink }) {
 			)}
 		</div>
 	);
-}
+};
 
 export default SubscriptionInfo;
