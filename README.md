@@ -10,5 +10,5 @@ https://fydji.dev
 
 | Key                   | Description                  |
 | --------------------- | ---------------------------- |
-| `NEXT_PUBLIC_API_URL` | The email used by the server |
-| `NEXT_PUBLIC_EMAIL`   | The server address           |
+| `NEXT_PUBLIC_API_URL` | The server address           |
+| `NEXT_PUBLIC_EMAIL`   | The email used by the server |
