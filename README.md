@@ -2,6 +2,10 @@
 
 # Fydji-site
 
+## Live version :
+
+https://fydji.dev
+
 ## Environment variables
 
 | Key                   | Description                  |
